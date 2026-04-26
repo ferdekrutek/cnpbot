@@ -7,7 +7,10 @@ import os
 # ─────────────────────────────────────────────
 #  Konfiguracja
 # ─────────────────────────────────────────────
-TOKEN = "MTQ5NzkzOTExNzcyMjQzNTYxNA.GR77mS.zz5ExhEMgDCKTZSeEBg6tK9AR5FY-TZgKnISFY"
+TOKEN = os.getenv("DISCORD_TOKEN")
+if not TOKEN:
+    raise ValueError("Brak tokenu DISCORD_TOKEN!")
+print(f"Token załadowany, długość: {len(TOKEN)}")
 
 intents = discord.Intents.default()
 intents.members = True          # wymagane do pobierania członków serwera
